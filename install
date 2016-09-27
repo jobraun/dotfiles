@@ -10,17 +10,17 @@ if [ -z "$HOME" ]; then
   exit 1
 fi
 
-if [ -L "$HOME/$GITCONFIG" -o -f "$HOME/$GITCONFIG" ]; then
+if [ -e "$HOME/$GITCONFIG" ]; then
   echo "ERROR: $GITCONFIG already exists, please remove or backup old."
   ERROR=true
 fi
 
-if [ -L "$HOME/$VIMCONFIG" -o -f "$HOME/$VIMCONFIG" ]; then
+if [ -e "$HOME/$VIMCONFIG" ]; then
   echo "ERROR: $VIMCONFIG already exists, please remove or backup old."
   ERROR=true
 fi
 
-if [ -L "$HOME/$VIMDIR" -o -f "$HOME/$VIMDIR" ]; then
+if [ -e "$HOME/$VIMDIR" ]; then
   echo "ERROR: $VIMDIR already exists, please remove or backup old."
   ERROR=true
 fi
