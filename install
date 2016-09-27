@@ -1,0 +1,36 @@
+#!/bin/bash
+
+GITCONFIG=.gitconfig
+VIMCONFIG=.vimrc
+VIMDIR=.vim
+ERROR=false
+
+if [ -z "$HOME" ]; then
+  echo "ERROR: variable HOME not set."
+  exit 1
+fi
+
+if [ -L "$HOME/$GITCONFIG" -o -f "$HOME/$GITCONFIG" ]; then
+  echo "ERROR: $GITCONFIG already exists, please remove or backup old."
+  ERROR=true
+fi
+
+if [ -L "$HOME/$VIMCONFIG" -o -f "$HOME/$VIMCONFIG" ]; then
+  echo "ERROR: $VIMCONFIG already exists, please remove or backup old."
+  ERROR=true
+fi
+
+if [ -L "$HOME/$VIMDIR" -o -f "$HOME/$VIMDIR" ]; then
+  echo "ERROR: $VIMDIR already exists, please remove or backup old."
+  ERROR=true
+fi
+
+[ "$ERROR" = "true" ] && exit 1
+
+
+# Link config files
+ln -s $PWD/$GITCONFIG $HOME/$GITCONFIG
+ln -s $PWD/$VIMCONFIG $HOME/$VIMCONFIG
+ln -s $PWD/$VIMDIR $HOME/$VIMDIR
+
+echo "Created symbolic links for config files in $HOME"
