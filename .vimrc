@@ -44,10 +44,14 @@ set cursorline
 " Line lenght indicator
 set colorcolumn=80
 
+" File-type based indentation
+filetype plugin indent on
+
 " Use whitespaces
-set expandtab
-set tabstop=2
-set shiftwidth=2
+set tabstop=8
+set softtabstop=8
+set shiftwidth=8
+set noexpandtab
 
 " No invisible signs
 set nolist
