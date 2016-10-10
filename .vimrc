@@ -2,7 +2,7 @@
 syntax enable
 
 " Change color scheme
-colorscheme wombat256
+colorscheme jellybeans
 
 if has('gui_running')
   set guifont=Monospace\ 11
