@@ -2,6 +2,7 @@
 
 GITCONFIG=.gitconfig
 VIMCONFIG=.vimrc
+EMACSCONFIG=.emacs
 VIMDIR=.vim
 ERROR=false
 
@@ -12,6 +13,11 @@ fi
 
 if [ -e "$HOME/$GITCONFIG" ]; then
   echo "ERROR: $GITCONFIG already exists, please remove or backup old."
+  ERROR=true
+fi
+
+if [ -e "$HOME/$EMACSCONFIG" ]; then
+  echo "ERROR: $EMACSCONFIG already exists, please remove or backup old."
   ERROR=true
 fi
 
@@ -30,6 +36,7 @@ fi
 
 # Link config files
 ln -s $PWD/$GITCONFIG $HOME/$GITCONFIG
+ln -s $PWD/$EMACSCONFIG $HOME/$EMACSCONFIG
 ln -s $PWD/$VIMCONFIG $HOME/$VIMCONFIG
 ln -s $PWD/$VIMDIR $HOME/$VIMDIR
 
