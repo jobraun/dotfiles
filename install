@@ -1,43 +1,59 @@
 #!/bin/bash
 
+BASHALIASES=.bash_aliases
 GITCONFIG=.gitconfig
 VIMCONFIG=.vimrc
 EMACSCONFIG=.emacs
-VIMDIR=.vim
 ERROR=false
+FORCE=false
+
+function create_links() {
+    ln -sf $PWD/$BASHALIASES $HOME/$BASHALIASES
+    ln -sf $PWD/$GITCONFIG $HOME/$GITCONFIG
+    ln -sf $PWD/$EMACSCONFIG $HOME/$EMACSCONFIG
+    ln -sf $PWD/$VIMCONFIG $HOME/$VIMCONFIG
+    echo "Created symbolic links for config files in $HOME"
+}
+
+if [ "$1" == "-f" ]; then
+    FORCE=true
+    read -p "Force parameter used. Overwrite existing files (y/n)? " answer
+    case ${answer:0:1} in
+        y|Y )
+            create_links
+            exit 0
+            ;;
+        * )
+            exit 1
+            ;;
+    esac
+fi
 
 if [ -z "$HOME" ]; then
-  echo "ERROR: variable HOME not set."
-  exit 1
+    echo "ERROR: variable HOME not set."
+    exit 1
+fi
+
+if [ -e "$HOME/$BASHALIASES" ]; then
+    echo "$BASHALIASES already exists."
+    ERROR=true
 fi
 
 if [ -e "$HOME/$GITCONFIG" ]; then
-  echo "ERROR: $GITCONFIG already exists, please remove or backup old."
-  ERROR=true
+    echo "$GITCONFIG already exists."
+    ERROR=true
 fi
 
 if [ -e "$HOME/$EMACSCONFIG" ]; then
-  echo "ERROR: $EMACSCONFIG already exists, please remove or backup old."
-  ERROR=true
+    echo "$EMACSCONFIG already exists."
+    ERROR=true
 fi
 
 if [ -e "$HOME/$VIMCONFIG" ]; then
-  echo "ERROR: $VIMCONFIG already exists, please remove or backup old."
-  ERROR=true
-fi
-
-if [ -e "$HOME/$VIMDIR" ]; then
-  echo "ERROR: $VIMDIR already exists, please remove or backup old."
-  ERROR=true
+    echo "$VIMCONFIG already exists."
+    ERROR=true
 fi
 
 [ "$ERROR" = "true" ] && exit 1
 
-
-# Link config files
-ln -s $PWD/$GITCONFIG $HOME/$GITCONFIG
-ln -s $PWD/$EMACSCONFIG $HOME/$EMACSCONFIG
-ln -s $PWD/$VIMCONFIG $HOME/$VIMCONFIG
-ln -s $PWD/$VIMDIR $HOME/$VIMDIR
-
-echo "Created symbolic links for config files in $HOME"
+create_links

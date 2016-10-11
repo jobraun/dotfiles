@@ -1,9 +1,6 @@
 " Activate syntax-highlighting
 syntax enable
 
-" Change color scheme
-colorscheme jellybeans
-
 if has('gui_running')
   set guifont=Monospace\ 11
 endif
