@@ -4,13 +4,20 @@ BASHALIASES=.bash_aliases
 GITCONFIG=.gitconfig
 VIMCONFIG=.vimrc
 EMACSCONFIG=.emacs
+EMACSFILES=.emacs.d
 ERROR=false
 FORCE=false
 
 function create_links() {
+    unlink $HOME/$BASHALIASES
+    unlink $HOME/$GITCONFIG
+    unlink $HOME/$EMACSCONFIG
+    unlink $HOME/$EMACSFILES
+    unlink $HOME/$VIMCONFIG
     ln -sf $PWD/$BASHALIASES $HOME/$BASHALIASES
     ln -sf $PWD/$GITCONFIG $HOME/$GITCONFIG
     ln -sf $PWD/$EMACSCONFIG $HOME/$EMACSCONFIG
+    ln -sf $PWD/$EMACSFILES $HOME/$EMACSFILES
     ln -sf $PWD/$VIMCONFIG $HOME/$VIMCONFIG
     echo "Created symbolic links for config files in $HOME"
 }
@@ -46,6 +53,11 @@ fi
 
 if [ -e "$HOME/$EMACSCONFIG" ]; then
     echo "$EMACSCONFIG already exists."
+    ERROR=true
+fi
+
+if [ -e "$HOME/$EMACSFILES" ]; then
+    echo "$EMACSFILES already exists."
     ERROR=true
 fi
 
