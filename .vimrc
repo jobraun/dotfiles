@@ -66,5 +66,12 @@ set cmdheight=2
 " Two lines of context visible around the cursor at all times
 set scrolloff=2
 
-" customize the status line
+" Customize the status line
 set statusline=Buffer[%n]\ File:%F%=ASCII-Value:hex(0x%02B),dez(%03b)\ Position:\ %l,%-4c\ --%P--
+
+" Toggle NerdTree
+map <F4> :NERDTreeToggle<CR>
+
+" Change buffers
+map <F5> :bp<CR>
+map <F6> :bn<CR>
