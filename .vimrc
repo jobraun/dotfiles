@@ -5,6 +5,8 @@ if has('gui_running')
   set guifont=Monospace\ 11
 endif
 
+colorscheme jellybeans
+
 " Disable backup and swap files
 set nobackup
 set nowritebackup
