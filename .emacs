@@ -4,6 +4,10 @@
 ;; Dark background
 (invert-face 'default)
 
+;; Enable line and column numbers
+(global-linum-mode 1)
+(setq column-number-mode t)
+
 ;; Store auto save file in system tmp dir
 (setq backup-directory-alist
           `((".*" . ,temporary-file-directory)))
