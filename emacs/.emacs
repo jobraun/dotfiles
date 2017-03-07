@@ -1,12 +1,22 @@
 ;; Disable startup screen
 (setq inhibit-startup-message t)
 
-;; Dark background
-(invert-face 'default)
+;; Append lisp folder to variable load-path
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
+;; Load theme wombat
+(load-theme 'wombat t)
+
+;; Disable the toolbar completely
+(tool-bar-mode -1)
 
 ;; Enable line and column numbers
 (global-linum-mode 1)
 (setq column-number-mode t)
+
+(require 'highlight-indent-guides)
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+(setq highlight-indent-guides-method 'character)
 
 ;; Store auto save file in system tmp dir
 (setq backup-directory-alist
