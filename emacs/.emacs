@@ -5,7 +5,8 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; Load theme wombat
-(load-theme 'wombat t)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'zenburn t)
 
 ;; Disable the toolbar completely
 (tool-bar-mode -1)
