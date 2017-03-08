@@ -19,11 +19,15 @@
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (setq highlight-indent-guides-method 'character)
 
+;; Enable Wind Move
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+
 ;; Store auto save file in system tmp dir
 (setq backup-directory-alist
-          `((".*" . ,temporary-file-directory)))
+      `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
-          `((".*" ,temporary-file-directory t)))
+      `((".*" ,temporary-file-directory t)))
 
 (setq c-default-style "linux"
       c-basic-offset 2)
@@ -34,17 +38,6 @@
 
 ;; Disable backup files
 (setq make-backup-files nil)
-
-;; This is how emacs tells the file type by the file suffix.
-(setq auto-mode-alist
-      (append '(("\\.bib$"      . bibtex-mode))
-              '(("\\.tex$"      . latex-mode))
-              '(("\\.cpp$"      . c++-mode))
-              '(("\\.h$"        . c++-mode))
-              '(("\\.hpp$"      . c++-mode))
-              '(("\\.c$"        . c-mode))
-              '(("\\.vcxproj$"  . xml-mode))
-auto-mode-alist))
 
 (add-to-list 'load-path "~/.emacs.d/lisp/neotree")
 (require 'neotree)
