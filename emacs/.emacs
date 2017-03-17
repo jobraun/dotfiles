@@ -4,6 +4,9 @@
 ;; Append lisp folder to variable load-path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
+;; Set default font
+(set-default-font "Monospace-11")
+
 ;; Load theme wombat
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load-theme 'zenburn t)
