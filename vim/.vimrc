@@ -32,7 +32,6 @@ set ignorecase
 
 " Display line numbers
 set number
-set relativenumber
 
 " Show the column and row number of the ruler
 set ruler
@@ -47,9 +46,9 @@ set colorcolumn=80
 filetype plugin indent on
 
 " Use whitespaces
-set tabstop=8
-set softtabstop=8
-set shiftwidth=8
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set noexpandtab
 
 " No invisible signs
@@ -67,12 +66,6 @@ set cmdheight=2
 
 " Two lines of context visible around the cursor at all times
 set scrolloff=2
-
-" Customize the status line
-set statusline=Buffer[%n]\ File:%F%=ASCII-Value:hex(0x%02B),dez(%03b)\ Position:\ %l,%-4c\ --%P--
-
-" Toggle NerdTree
-map <F4> :NERDTreeToggle<CR>
 
 " Change buffers
 map <F5> :bp<CR>
