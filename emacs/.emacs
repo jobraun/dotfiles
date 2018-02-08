@@ -7,9 +7,9 @@
 ;; Set default font
 (set-default-font "Monospace-11")
 
-;; Load theme wombat
+;; Load theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'zenburn t)
+(load-theme 'solarized t)
 
 ;; Disable the toolbar completely
 (tool-bar-mode -1)
@@ -41,9 +41,5 @@
 
 ;; Disable backup files
 (setq make-backup-files nil)
-
-(add-to-list 'load-path "~/.emacs.d/lisp/neotree")
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
 
 (global-set-key (kbd "C-x C-b") 'bs-show)
