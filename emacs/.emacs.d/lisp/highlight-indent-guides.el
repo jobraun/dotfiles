@@ -416,13 +416,18 @@ This runs whenever a theme is loaded."
           (ad-enable-advice 'load-theme 'after
                             'highlight-indent-guides-auto-set-faces)
           (ad-activate 'load-theme)
+          (make-variable-buffer-local 'font-lock-extra-managed-props)
+          (make-variable-buffer-local 'text-property-default-nonsticky)
           (add-to-list 'font-lock-extra-managed-props 'display)
+          (add-to-list 'text-property-default-nonsticky
+                       (cons 'highlight-indent-guides-prop t))
           (font-lock-add-keywords
            nil
            (pcase highlight-indent-guides-method
              (`fill fill-method-keywords)
              (`column column-method-keywords)
-             (`character character-method-keywords)))
+             (`character character-method-keywords))
+           t)
           (jit-lock-register 'highlight-indent-guides--guide-region))
       (ad-disable-advice 'load-theme 'after
                          'highlight-indent-guides-auto-set-faces)

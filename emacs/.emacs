@@ -9,7 +9,7 @@
 
 ;; Load theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'solarized t)
+(load-theme 'zenburn t)
 
 ;; Disable the toolbar completely
 (tool-bar-mode -1)
@@ -43,3 +43,4 @@
 (setq make-backup-files nil)
 
 (global-set-key (kbd "C-x C-b") 'bs-show)
+(global-set-key (kbd "M-f") 'find-name-dired)
