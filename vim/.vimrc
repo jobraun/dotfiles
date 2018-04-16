@@ -1,6 +1,8 @@
 " Activate syntax-highlighting
 syntax enable
 
+set term=screen-256color
+
 if has('gui_running')
   set guifont=Monospace\ 11
 endif
@@ -49,7 +51,7 @@ filetype plugin indent on
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set noexpandtab
+set expandtab
 
 " No invisible signs
 set nolist
@@ -59,10 +61,6 @@ match ErrorMsg '\s\+$'
 
 " Status line
 set laststatus=2
-
-" Set the command window height to 2 lines, to avoid many cases having to
-" press <Enter> to continue
-set cmdheight=2
 
 " Two lines of context visible around the cursor at all times
 set scrolloff=2
