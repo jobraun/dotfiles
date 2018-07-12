@@ -53,11 +53,8 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
-" No invisible signs
-set nolist
-
 " Highlight trailing whitespaces
-match ErrorMsg '\s\+$'
+set list listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<
 
 " Status line
 set laststatus=2
@@ -68,3 +65,10 @@ set scrolloff=2
 " Change buffers
 map <F5> :bp<CR>
 map <F6> :bn<CR>
+
+fun! TrimWhitespace()
+  let l:save = winsaveview()
+  %s/\s\+$//e
+  call winrestview(l:save)
+endfun
+command! TrimWhitespace call TrimWhitespace()
