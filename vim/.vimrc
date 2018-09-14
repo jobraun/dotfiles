@@ -54,7 +54,7 @@ set shiftwidth=2
 set expandtab
 
 " Highlight trailing whitespaces
-set list listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<
+set list listchars=eol:¶,tab:>-,trail:.,extends:>,precedes:<
 
 " Status line
 set laststatus=2
