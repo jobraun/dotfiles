@@ -7,6 +7,11 @@ if has('gui_running')
   set guifont=Monospace\ 11
 endif
 
+" Disable menu bar, toolbar and scrollbar
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+
 colorscheme gruvbox
 set background=dark
 let g:gruvbox_contrast_dark='hard'
