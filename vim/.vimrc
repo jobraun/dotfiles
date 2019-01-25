@@ -7,7 +7,9 @@ if has('gui_running')
   set guifont=Monospace\ 11
 endif
 
-colorscheme jellybeans
+colorscheme gruvbox
+set background=dark
+let g:gruvbox_contrast_dark='hard'
 
 " Disable backup and swap files
 set nobackup
