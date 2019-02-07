@@ -23,6 +23,7 @@ set noswapfile
 
 " Better command-line completion
 set wildmenu
+set wildmode=list:full
 
 " Show partial commands in the last line of the screen
 set showcmd
@@ -69,7 +70,8 @@ set laststatus=2
 " Two lines of context visible around the cursor at all times
 set scrolloff=2
 
-" Change buffers
+" Buffer shortcuts
+map <F4> :ls<CR>
 map <F5> :bp<CR>
 map <F6> :bn<CR>
 
