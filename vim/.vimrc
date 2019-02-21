@@ -70,10 +70,13 @@ set laststatus=2
 " Two lines of context visible around the cursor at all times
 set scrolloff=2
 
+set tags=./tags;/
+
 " Buffer shortcuts
 map <F4> :ls<CR>
 map <F5> :bp<CR>
 map <F6> :bn<CR>
+map <F8> :TagbarToggle<CR>
 
 fun! TrimWhitespace()
   let l:save = winsaveview()
