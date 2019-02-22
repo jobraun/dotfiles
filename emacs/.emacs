@@ -9,7 +9,8 @@
 
 ;; Load theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'zenburn t)
+(set-frame-parameter nil 'background-mode 'dark)
+(load-theme 'solarized t)
 
 ;; Disable the toolbar completely
 (tool-bar-mode -1)
@@ -44,3 +45,6 @@
 
 (global-set-key (kbd "C-x C-b") 'bs-show)
 (global-set-key (kbd "M-f") 'find-name-dired)
+
+(require 'sr-speedbar)
+(setq speedbar-use-images nil)
