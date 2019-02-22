@@ -46,5 +46,12 @@
 (global-set-key (kbd "C-x C-b") 'bs-show)
 (global-set-key (kbd "M-f") 'find-name-dired)
 
+(defun create-tags (dir-name)
+  "Create tags file."
+  (interactive "DDirectory: ")
+  (shell-command (format "ctags -f %sTAGS -e -R %s"
+                         (file-name-as-directory dir-name)
+                         (directory-file-name dir-name))))
+
 (require 'sr-speedbar)
 (setq speedbar-use-images nil)

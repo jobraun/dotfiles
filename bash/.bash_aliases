@@ -1,5 +1,4 @@
 alias ll='ls -lAF --color=auto'
 alias ..='cd ..'
 alias e='emacsclient --alternate-editor="" --no-wait $*'
-alias tags='find . -regex ".*\.\(cpp\|c\|h\)" -print | etags -'
 alias vimr='vim --servername $(vim --serverlist) --remote'
