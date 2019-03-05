@@ -23,6 +23,9 @@
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (setq highlight-indent-guides-method 'character)
 
+;; Autoreload of buffers
+(global-auto-revert-mode t)
+
 ;; Enable Wind Move
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
