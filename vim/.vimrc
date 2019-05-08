@@ -12,9 +12,7 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 
-colorscheme gruvbox
-set background=dark
-let g:gruvbox_contrast_dark='hard'
+colorscheme jellybeans
 
 " Disable backup and swap files
 set nobackup
@@ -84,3 +82,7 @@ fun! TrimWhitespace()
   call winrestview(l:save)
 endfun
 command! TrimWhitespace call TrimWhitespace()
+
+" Configure airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
