@@ -1,0 +1,6 @@
+apt-get install fish git vim-gtk3 tmux chromium-browser build-essential rxvt-unicode-256color
+
+stow -t ~ bash fish git tmux vim X
+
+curl -L https://get.oh-my.fish > install
+fish install --path=~/.local/share/omf --config=~/.config/omf
