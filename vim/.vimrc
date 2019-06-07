@@ -12,7 +12,9 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 
-colorscheme jellybeans
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
 
 " Disable backup and swap files
 set nobackup
@@ -61,6 +63,7 @@ set expandtab
 
 " Highlight trailing whitespaces
 set list listchars=eol:¶,tab:>-,trail:.,extends:>,precedes:<
+set nolist
 
 " Status line
 set laststatus=2
