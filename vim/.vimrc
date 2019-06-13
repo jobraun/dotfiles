@@ -12,9 +12,11 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 
-let g:solarized_termcolors=256
 set background=dark
-colorscheme solarized
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
+let g:gruvbox_italicize_strings=0
+let g:gruvbox_improved_strings=1
 
 " Disable backup and swap files
 set nobackup
@@ -87,12 +89,12 @@ endfun
 command! TrimWhitespace call TrimWhitespace()
 
 " Configure airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#formatter='unique_tail'
 
 " Configure signify
-let g:signify_vcs_list = [ 'git' ]
-let g:signify_cursorhold_insert     = 1
-let g:signify_cursorhold_normal     = 1
-let g:signify_update_on_bufenter    = 0
-let g:signify_update_on_focusgained = 1
+let g:signify_vcs_list=[ 'git' ]
+let g:signify_cursorhold_insert=1
+let g:signify_cursorhold_normal=1
+let g:signify_update_on_bufenter=0
+let g:signify_update_on_focusgained=1
