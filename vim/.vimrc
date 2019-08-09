@@ -1,7 +1,24 @@
+call plug#begin('~/.vim/plugged')
+Plug 'mhartington/oceanic-next' 
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+call plug#end()
+
 " Activate syntax-highlighting
 syntax enable
 
-set term=screen-256color
+" For vim 7
+set t_Co=256
+
+" For vim 8
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+color OceanicNext
 
 if has('gui_running')
   set guifont=Monospace\ 11
@@ -11,12 +28,6 @@ endif
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
-
-set background=dark
-let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
-let g:gruvbox_italicize_strings=0
-let g:gruvbox_improved_strings=1
 
 " Disable backup and swap files
 set nobackup
@@ -79,7 +90,6 @@ set tags=./tags;/
 map <F4> :ls<CR>
 map <F5> :bp<CR>
 map <F6> :bn<CR>
-map <F8> :TagbarToggle<CR>
 
 fun! TrimWhitespace()
   let l:save = winsaveview()
@@ -87,14 +97,3 @@ fun! TrimWhitespace()
   call winrestview(l:save)
 endfun
 command! TrimWhitespace call TrimWhitespace()
-
-" Configure airline
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#formatter='unique_tail'
-
-" Configure signify
-let g:signify_vcs_list=[ 'git' ]
-let g:signify_cursorhold_insert=1
-let g:signify_cursorhold_normal=1
-let g:signify_update_on_bufenter=0
-let g:signify_update_on_focusgained=1
