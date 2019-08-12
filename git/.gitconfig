@@ -1,6 +1,6 @@
 [user]
   name = Johannes Braun
-  email = johannes.braun@unicon-software.com
+  email =
 [core]
   editor = vim
   pager = less -x2

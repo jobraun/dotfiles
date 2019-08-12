@@ -3,6 +3,7 @@ Plug 'mhartington/oceanic-next'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 " Activate syntax-highlighting
@@ -16,8 +17,6 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
 color OceanicNext
 
 if has('gui_running')
