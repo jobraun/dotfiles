@@ -9,8 +9,7 @@
 
 ;; Load theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(set-frame-parameter nil 'background-mode 'dark)
-(load-theme 'solarized t)
+(load-theme 'dracula t)
 
 ;; Disable the toolbar completely
 (tool-bar-mode -1)
@@ -46,8 +45,11 @@
 ;; Disable backup files
 (setq make-backup-files nil)
 
-(global-set-key (kbd "C-x C-b") 'bs-show)
-(global-set-key (kbd "M-f") 'find-name-dired)
+(require 'helm-config)
+(helm-mode 1)
+
+(require 'helm-projectile)
+(helm-projectile-on)
 
 (defun create-tags (dir-name)
   "Create tags file."
@@ -56,5 +58,6 @@
                          (file-name-as-directory dir-name)
                          (directory-file-name dir-name))))
 
-(require 'sr-speedbar)
-(setq speedbar-use-images nil)
+(global-set-key (kbd "C-c h p") 'helm-projectile)
+(global-set-key (kbd "C-x C-b") 'bs-show)
+(global-set-key (kbd "M-f") 'find-name-dired)
