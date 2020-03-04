@@ -22,12 +22,12 @@
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (setq highlight-indent-guides-method 'character)
 
-;; Autoreload of buffers
-(global-auto-revert-mode t)
+;; Indentation, 2 spaces, no tabs
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
 
-;; Enable Wind Move
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
+(setq c-default-style "linux"
+      c-basic-offset 2)
 
 ;; Store auto save file in system tmp dir
 (setq backup-directory-alist
@@ -35,15 +35,25 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
-(setq c-default-style "linux"
-      c-basic-offset 2)
-
-;; Indentation, 2 spaces, no tabs
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-
 ;; Disable backup files
 (setq make-backup-files nil)
+
+;; Autoreload of buffers
+(global-auto-revert-mode t)
+
+;; Auto-Saving the desktop
+(require 'desktop)
+(desktop-save-mode 1)
+(defun my-desktop-save ()
+  (interactive)
+  ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
+  (if (eq (desktop-owner) (emacs-pid))
+      (desktop-save desktop-dirname)))
+(add-hook 'auto-save-hook 'my-desktop-save)
+
+;; Enable Wind Move
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
 
 (require 'helm-config)
 (helm-mode 1)
@@ -59,5 +69,4 @@
                          (directory-file-name dir-name))))
 
 (global-set-key (kbd "C-c h p") 'helm-projectile)
-(global-set-key (kbd "C-x C-b") 'bs-show)
 (global-set-key (kbd "M-f") 'find-name-dired)
