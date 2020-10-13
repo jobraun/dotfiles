@@ -1,6 +1,11 @@
 ;; Disable startup screen
 (setq inhibit-startup-message t)
 
+;; Set title to current buffer
+(setq frame-title-format
+  `((buffer-file-name "%f" "%b")
+    ,(format " - GNU Emacs %s" emacs-version)))
+
 ;; Append lisp folder to variable load-path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
