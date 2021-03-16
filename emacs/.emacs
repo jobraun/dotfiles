@@ -6,18 +6,21 @@
   `((buffer-file-name "%f" "%b")
     ,(format " - GNU Emacs %s" emacs-version)))
 
-;; Append lisp folder to variable load-path
+;; Append paths folder to variable load-path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list 'load-path "~/.emacs.d/lisp/solarized/")
 
 ;; Set default font
 (set-default-font "Monospace-11")
 
 ;; Load theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'dracula t)
+(load-theme 'solarized-dark t)
 
 ;; Disable the toolbar completely
-(tool-bar-mode -1)
+;;(menu-bar-mode -1)
+;;(tool-bar-mode -1)
+;;(toggle-scroll-bar -1)
 
 ;; Enable line and column numbers
 (global-linum-mode 1)
